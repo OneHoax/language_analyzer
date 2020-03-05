@@ -1,0 +1,31 @@
+add_class("Example")
+
+add_attribute("Example", "count", "INTEGER")
+
+add_attribute("Example", "b", "BOOLEAN")
+
+add_query("Example", "function", <<>>, "Example")
+
+generate_java_code
+
+add_assignment_instruction("Example", "function", "q")
+
+generate_java_code
+
+bool_value(True)
+
+generate_java_code
+
+add_assignment_instruction("Example", "function", "Result")
+
+generate_java_code
+
+less_than
+
+int_value(5)
+
+generate_java_code
+
+int_value(9)
+
+generate_java_code

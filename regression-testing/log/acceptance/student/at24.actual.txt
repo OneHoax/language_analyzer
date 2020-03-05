@@ -1,0 +1,51 @@
+  Status: OK.
+  Number of classes being specified: 0
+->add_class("A")
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_command("A","cmd",<<>>)
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 1
+        + cmd
+->add_assignment_instruction("A","cmd","att")
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 1
+        + cmd
+  Routine currently being implemented: {A}.cmd
+  Assignment being specified: att := ?
+->int_value(2)
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 1
+        + cmd
+->add_attribute("A","att","INTEGER")
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 1
+        + att: INTEGER
+      Number of queries: 0
+      Number of commands: 1
+        + cmd
+->generate_java_code
+  class A {
+    void cmd() {
+      att = 2;
+    }
+    int att;
+  }

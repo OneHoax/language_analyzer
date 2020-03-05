@@ -1,0 +1,3 @@
+generate_java_code
+
+type_check

@@ -1,0 +1,6 @@
+add_class("A")
+
+add_class("B")
+
+generate_java_code
+

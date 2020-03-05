@@ -1,0 +1,371 @@
+  Status: OK.
+  Number of classes being specified: 0
+->add_class("A")
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_class("B")
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("A","i","INTEGER")
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 1
+        + i: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("A","b","B")
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 0
+      Number of commands: 0
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("B","k","INTEGER")
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 0
+      Number of commands: 0
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+->add_command("A","command2",<<["x", "INTEGER"], ["y", "BOOLEAN"], ["a", "B"]>>)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 0
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+->add_query("A","query1",<<["x", "INTEGER"], ["y", "BOOLEAN"]>>,"INTEGER")
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 1
+        + query1(INTEGER, BOOLEAN): INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+->add_query("A","query2",<<>>,"INTEGER")
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+->add_assignment_instruction("A","query1","k")
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: k := ?
+->equals
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: k := (? == nil)
+->less_than
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: k := ((? < nil) == nil)
+->logical_negation
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: k := (((! ?) < nil) == nil)
+->bool_value(True)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: k := (((! True) < ?) == nil)
+->modulo
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: k := (((! True) < (? % nil)) == nil)
+->numerical_negation
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: k := (((! True) < ((- ?) % nil)) == nil)
+->greater_than
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: k := (((! True) < ((- (? > nil)) % nil)) == nil)
+->disjunction
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: k := (((! True) < ((- ((? || nil) > nil)) % nil)) == nil)
+->int_value(4)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: k := (((! True) < ((- ((4 || ?) > nil)) % nil)) == nil)
+->int_value(9)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: k := (((! True) < ((- ((4 || 9) > ?)) % nil)) == nil)
+->int_value(10)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: k := (((! True) < ((- ((4 || 9) > 10)) % ?)) == nil)
+->int_value(20)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: k := (((! True) < ((- ((4 || 9) > 10)) % 20)) == ?)
+->int_value(25)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: B
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 1
+        + k: INTEGER
+      Number of queries: 0
+      Number of commands: 0

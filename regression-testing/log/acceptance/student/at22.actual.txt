@@ -1,0 +1,1089 @@
+  Status: OK.
+  Number of classes being specified: 0
+->add_class("A")
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_class("B")
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_class("C")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->generate_java_code
+  class A {
+  }
+  class B {
+  }
+  class C {
+  }
+->add_attribute("A","i","INTEGER")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 1
+        + i: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("A","b","BOOLEAN")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("B","j","INTEGER")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("C","c","BOOLEAN")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+->add_command("A","set_i",<<["x", "INTEGER"], ["p", "C"], ["y", "INTEGER"]>>)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 0
+      Number of commands: 1
+        + set_i(INTEGER, C, INTEGER)
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+->add_command("A","command2",<<>>)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+->add_query("A","query1",<<["u", "A"], ["t", "B"]>>,"BOOLEAN")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(A, B): BOOLEAN
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+->add_assignment_instruction("A","query1","b")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(A, B): BOOLEAN
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: b := ?
+->generate_java_code
+  class A {
+    int i;
+    bool b;
+    void set_i(int x, C p, int y) {
+    }
+    void command2() {
+    }
+    bool query1(A u, B t) {
+      bool Result = False;
+      b = ?;
+      return Result;
+    }
+  }
+  class B {
+    int j;
+  }
+  class C {
+    bool c;
+  }
+->addition
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(A, B): BOOLEAN
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: b := (? + nil)
+->multiplication
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(A, B): BOOLEAN
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: b := ((? * nil) + nil)
+->logical_negation
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(A, B): BOOLEAN
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: b := (((! ?) * nil) + nil)
+->generate_java_code
+  class A {
+    int i;
+    bool b;
+    void set_i(int x, C p, int y) {
+    }
+    void command2() {
+    }
+    bool query1(A u, B t) {
+      bool Result = False;
+      b = (((! ?) * nil) + nil);
+      return Result;
+    }
+  }
+  class B {
+    int j;
+  }
+  class C {
+    bool c;
+  }
+->bool_value(False)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(A, B): BOOLEAN
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: b := (((! False) * ?) + nil)
+->addition
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(A, B): BOOLEAN
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: b := (((! False) * (? + nil)) + nil)
+->numerical_negation
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(A, B): BOOLEAN
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: b := (((! False) * ((- ?) + nil)) + nil)
+->multiplication
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(A, B): BOOLEAN
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: b := (((! False) * ((- (? * nil)) + nil)) + nil)
+->addition
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(A, B): BOOLEAN
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: b := (((! False) * ((- ((? + nil) * nil)) + nil)) + nil)
+->int_value(4)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(A, B): BOOLEAN
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: b := (((! False) * ((- ((4 + ?) * nil)) + nil)) + nil)
+->int_value(9)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(A, B): BOOLEAN
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: b := (((! False) * ((- ((4 + 9) * ?)) + nil)) + nil)
+->generate_java_code
+  class A {
+    int i;
+    bool b;
+    void set_i(int x, C p, int y) {
+    }
+    void command2() {
+    }
+    bool query1(A u, B t) {
+      bool Result = False;
+      b = (((! False) * ((- ((4 + 9) * ?)) + nil)) + nil);
+      return Result;
+    }
+  }
+  class B {
+    int j;
+  }
+  class C {
+    bool c;
+  }
+->int_value(10)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(A, B): BOOLEAN
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: b := (((! False) * ((- ((4 + 9) * 10)) + ?)) + nil)
+->int_value(20)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(A, B): BOOLEAN
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: b := (((! False) * ((- ((4 + 9) * 10)) + 20)) + ?)
+->int_value(25)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(A, B): BOOLEAN
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+->add_query("A","query2",<<>>,"B")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+->generate_java_code
+  class A {
+    int i;
+    bool b;
+    void set_i(int x, C p, int y) {
+    }
+    void command2() {
+    }
+    bool query1(A u, B t) {
+      bool Result = False;
+      b = (((! False) * ((- ((4 + 9) * 10)) + 20)) + 25);
+      return Result;
+    }
+    B query2() {
+      B Result = null;
+      return Result;
+    }
+  }
+  class B {
+    int j;
+  }
+  class C {
+    bool c;
+  }
+->add_assignment_instruction("A","query1","Result")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: Result := ?
+->generate_java_code
+  class A {
+    int i;
+    bool b;
+    void set_i(int x, C p, int y) {
+    }
+    void command2() {
+    }
+    bool query1(A u, B t) {
+      bool Result = False;
+      b = (((! False) * ((- ((4 + 9) * 10)) + 20)) + 25);
+      Result = ?;
+      return Result;
+    }
+    B query2() {
+      B Result = null;
+      return Result;
+    }
+  }
+  class B {
+    int j;
+  }
+  class C {
+    bool c;
+  }
+->addition
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: Result := (? + nil)
+->multiplication
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: Result := ((? * nil) + nil)
+->int_value(25)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: Result := ((25 * ?) + nil)
+->int_value(15)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: Result := ((25 * 15) + ?)
+->generate_java_code
+  class A {
+    int i;
+    bool b;
+    void set_i(int x, C p, int y) {
+    }
+    void command2() {
+    }
+    bool query1(A u, B t) {
+      bool Result = False;
+      b = (((! False) * ((- ((4 + 9) * 10)) + 20)) + 25);
+      Result = ((25 * 15) + ?);
+      return Result;
+    }
+    B query2() {
+      B Result = null;
+      return Result;
+    }
+  }
+  class B {
+    int j;
+  }
+  class C {
+    bool c;
+  }
+->addition
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: Result := ((25 * 15) + (? + nil))
+->multiplication
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: Result := ((25 * 15) + ((? * nil) + nil))
+->int_value(1)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: Result := ((25 * 15) + ((1 * ?) + nil))
+->int_value(2)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: Result := ((25 * 15) + ((1 * 2) + ?))
+->addition
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: Result := ((25 * 15) + ((1 * 2) + (? + nil)))
+->int_value(3)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: Result := ((25 * 15) + ((1 * 2) + (3 + ?)))
+->logical_negation
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: Result := ((25 * 15) + ((1 * 2) + (3 + (! ?))))
+->generate_java_code
+  class A {
+    int i;
+    bool b;
+    void set_i(int x, C p, int y) {
+    }
+    void command2() {
+    }
+    bool query1(A u, B t) {
+      bool Result = False;
+      b = (((! False) * ((- ((4 + 9) * 10)) + 20)) + 25);
+      Result = ((25 * 15) + ((1 * 2) + (3 + (! ?))));
+      return Result;
+    }
+    B query2() {
+      B Result = null;
+      return Result;
+    }
+  }
+  class B {
+    int j;
+  }
+  class C {
+    bool c;
+  }
+->addition
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: Result := ((25 * 15) + ((1 * 2) + (3 + (! (? + nil)))))
+->int_value(5)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.query1
+  Assignment being specified: Result := ((25 * 15) + ((1 * 2) + (3 + (! (5 + ?)))))
+->int_value(9)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(A, B): BOOLEAN
+        + query2: B
+      Number of commands: 2
+        + set_i(INTEGER, C, INTEGER)
+        + command2
+    B
+      Number of attributes: 1
+        + j: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 1
+        + c: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+->generate_java_code
+  class A {
+    int i;
+    bool b;
+    void set_i(int x, C p, int y) {
+    }
+    void command2() {
+    }
+    bool query1(A u, B t) {
+      bool Result = False;
+      b = (((! False) * ((- ((4 + 9) * 10)) + 20)) + 25);
+      Result = ((25 * 15) + ((1 * 2) + (3 + (! (5 + 9)))));
+      return Result;
+    }
+    B query2() {
+      B Result = null;
+      return Result;
+    }
+  }
+  class B {
+    int j;
+  }
+  class C {
+    bool c;
+  }

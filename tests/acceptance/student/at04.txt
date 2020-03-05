@@ -1,0 +1,21 @@
+add_class("A")
+
+add_class("B")
+
+add_attribute("A","i","INTEGER")
+
+add_attribute("A","b","BOOLEAN")
+
+add_command("A","set_i",<<["x", "INTEGER"], ["y", "INTEGER"]>>)
+
+add_command("A","command2",<<["x", "INTEGER"], ["y", "BOOLEAN"], ["a", "B"]>>)
+
+add_command("A","command3",<<["x", "INTEGER"], ["a", "B"], ["y", "BOOLEAN"]>>)
+
+add_query("A","query1",<<["x", "INTEGER"], ["y", "BOOLEAN"]>>, "INTEGER")
+
+add_query("A","query2",<<>>, "INTEGER")
+
+add_command("A","command4",<<>>)
+
+add_assignment_instruction("A","set_i","i")

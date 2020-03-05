@@ -1,0 +1,577 @@
+  Status: OK.
+  Number of classes being specified: 0
+->add_class("A")
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_class("C")
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_class("D")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("A","i","INTEGER")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 1
+        + i: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("A","b","BOOLEAN")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("A","c","C")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 3
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("A","d","D")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 0
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_command("A","set_i",<<["x", "INTEGER"], ["y", "INTEGER"]>>)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 1
+        + set_i(INTEGER, INTEGER)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_command("A","command1",<<["f", "INTEGER"], ["t", "BOOLEAN"]>>)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_assignment_instruction("A","set_i","i")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ?
+->multiplication
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := (? * nil)
+->addition
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ((? + nil) * nil)
+->int_value(1)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ((1 + ?) * nil)
+->int_value(2)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ((1 + 2) * ?)
+->int_value(3)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_assignment_instruction("A","set_i","i")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ?
+->addition
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := (? + nil)
+->add_call_chain(<<"i">>)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := (i + ?)
+->subtraction
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := (i + (? - nil))
+->add_call_chain(<<"x">>)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := (i + (x - ?))
+->add_call_chain(<<"y">>)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_assignment_instruction("A","set_i","b")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: b := ?
+->equals
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: b := (? == nil)
+->add_call_chain(<<"c">>)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: b := (c == ?)
+->add_call_chain(<<"d">>)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_assignment_instruction("A","command1","g")
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.command1
+  Assignment being specified: g := ?
+->int_value(3)
+  Status: OK.
+  Number of classes being specified: 3
+    A
+      Number of attributes: 4
+        + i: INTEGER
+        + b: BOOLEAN
+        + c: C
+        + d: D
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command1(INTEGER, BOOLEAN)
+    C
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    D
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->type_check
+  class A is not type-correct:
+    b = (c == d) in routine set_i is not type-correct.
+    g = 3 in routine command1 is not type-correct.
+  class C is type-correct.
+  class D is type-correct.
+->generate_java_code
+  class A {
+    int i;
+    bool b;
+    C c;
+    D d;
+    void set_i(int x, int y) {
+      i = ((1 + 2) * 3);
+      i = (i + (x - y));
+      b = (c == d);
+    }
+    void command1(int f, bool t) {
+      g = 3;
+    }
+  }
+  class C {
+  }
+  class D {
+  }

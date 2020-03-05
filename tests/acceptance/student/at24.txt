@@ -1,0 +1,6 @@
+add_class("A")
+add_command("A", "cmd", <<>>)
+add_assignment_instruction("A", "cmd", "att")
+int_value(2)
+add_attribute("A", "att", "INTEGER")
+generate_java_code

@@ -1,0 +1,157 @@
+  Status: OK.
+  Number of classes being specified: 0
+->add_class("A")
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("A","i","INTEGER")
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 1
+        + i: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("A","b","BOOLEAN")
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+->add_command("A","set_i",<<["x", "INTEGER"], ["y", "INTEGER"]>>)
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 0
+      Number of commands: 1
+        + set_i(INTEGER, INTEGER)
+->add_command("A","command2",<<["x", "INTEGER"], ["y", "BOOLEAN"], ["a", "B"]>>)
+  Status: Error (Parameter types do not refer to primitive types or existing classes: B).
+  Number of classes being specified: 1
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 0
+      Number of commands: 1
+        + set_i(INTEGER, INTEGER)
+->add_query("A","query1",<<["x", "INTEGER"], ["y", "BOOLEAN"]>>,"INTEGER")
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(INTEGER, BOOLEAN): INTEGER
+      Number of commands: 1
+        + set_i(INTEGER, INTEGER)
+->add_query("A","query2",<<>>,"INTEGER")
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 1
+        + set_i(INTEGER, INTEGER)
+->add_command("A","command4",<<>>)
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command4
+->add_assignment_instruction("A","set_i","i")
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command4
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ?
+->add_assignment_instruction("A","set_i","i")
+  Status: Error (An assignment instruction is currently being specified for routine set_i in class A).
+  Number of classes being specified: 1
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command4
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ?
+->add_assignment_instruction("A","set_i","k")
+  Status: Error (An assignment instruction is currently being specified for routine set_i in class A).
+  Number of classes being specified: 1
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command4
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ?
+->add_assignment_instruction("A","command2","p")
+  Status: Error (An assignment instruction is currently being specified for routine set_i in class A).
+  Number of classes being specified: 1
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command4
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ?
+->add_assignment_instruction("A","query1","r")
+  Status: Error (An assignment instruction is currently being specified for routine set_i in class A).
+  Number of classes being specified: 1
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command4
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ?

@@ -1,0 +1,31 @@
+add_class("A")
+
+add_class("B")
+
+add_attribute("A","i","INTEGER")
+
+add_attribute("A","b","B")
+
+add_attribute("B","k","INTEGER")
+
+add_command("A","command2",<<["x", "INTEGER"], ["y", "BOOLEAN"], ["a", "B"]>>)
+
+add_query("A","query1",<<["x", "INTEGER"], ["y", "BOOLEAN"]>>, "INTEGER")
+
+add_query("A","query2",<<>>, "INTEGER")
+
+add_assignment_instruction("A","query1","k")
+
+addition
+
+multiplication
+
+logical_negation
+
+int_value(5)
+
+int_value(2)
+
+numerical_negation
+
+int_value(6)

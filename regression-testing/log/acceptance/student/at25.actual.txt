@@ -1,0 +1,166 @@
+  Status: OK.
+  Number of classes being specified: 0
+->add_class("Example")
+  Status: OK.
+  Number of classes being specified: 1
+    Example
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("Example","count","INTEGER")
+  Status: OK.
+  Number of classes being specified: 1
+    Example
+      Number of attributes: 1
+        + count: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("Example","b","BOOLEAN")
+  Status: OK.
+  Number of classes being specified: 1
+    Example
+      Number of attributes: 2
+        + count: INTEGER
+        + b: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+->add_query("Example","function",<<>>,"Example")
+  Status: OK.
+  Number of classes being specified: 1
+    Example
+      Number of attributes: 2
+        + count: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + function: Example
+      Number of commands: 0
+->generate_java_code
+  class Example {
+    int count;
+    bool b;
+    Example function() {
+      Example Result = null;
+      return Result;
+    }
+  }
+->add_assignment_instruction("Example","function","q")
+  Status: OK.
+  Number of classes being specified: 1
+    Example
+      Number of attributes: 2
+        + count: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + function: Example
+      Number of commands: 0
+  Routine currently being implemented: {Example}.function
+  Assignment being specified: q := ?
+->generate_java_code
+  class Example {
+    int count;
+    bool b;
+    Example function() {
+      Example Result = null;
+      q = ?;
+      return Result;
+    }
+  }
+->bool_value(True)
+  Status: OK.
+  Number of classes being specified: 1
+    Example
+      Number of attributes: 2
+        + count: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + function: Example
+      Number of commands: 0
+->generate_java_code
+  class Example {
+    int count;
+    bool b;
+    Example function() {
+      Example Result = null;
+      q = True;
+      return Result;
+    }
+  }
+->add_assignment_instruction("Example","function","Result")
+  Status: OK.
+  Number of classes being specified: 1
+    Example
+      Number of attributes: 2
+        + count: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + function: Example
+      Number of commands: 0
+  Routine currently being implemented: {Example}.function
+  Assignment being specified: Result := ?
+->generate_java_code
+  class Example {
+    int count;
+    bool b;
+    Example function() {
+      Example Result = null;
+      q = True;
+      Result = ?;
+      return Result;
+    }
+  }
+->less_than
+  Status: OK.
+  Number of classes being specified: 1
+    Example
+      Number of attributes: 2
+        + count: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + function: Example
+      Number of commands: 0
+  Routine currently being implemented: {Example}.function
+  Assignment being specified: Result := (? < nil)
+->int_value(5)
+  Status: OK.
+  Number of classes being specified: 1
+    Example
+      Number of attributes: 2
+        + count: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + function: Example
+      Number of commands: 0
+  Routine currently being implemented: {Example}.function
+  Assignment being specified: Result := (5 < ?)
+->generate_java_code
+  class Example {
+    int count;
+    bool b;
+    Example function() {
+      Example Result = null;
+      q = True;
+      Result = (5 < ?);
+      return Result;
+    }
+  }
+->int_value(9)
+  Status: OK.
+  Number of classes being specified: 1
+    Example
+      Number of attributes: 2
+        + count: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + function: Example
+      Number of commands: 0
+->generate_java_code
+  class Example {
+    int count;
+    bool b;
+    Example function() {
+      Example Result = null;
+      q = True;
+      Result = (5 < 9);
+      return Result;
+    }
+  }

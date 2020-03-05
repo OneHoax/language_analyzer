@@ -1,0 +1,363 @@
+  Status: OK.
+  Number of classes being specified: 0
+->add_class("A")
+  Status: OK.
+  Number of classes being specified: 1
+    A
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_class("B")
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("A","i","INTEGER")
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 1
+        + i: INTEGER
+      Number of queries: 0
+      Number of commands: 0
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_attribute("A","b","BOOLEAN")
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 0
+      Number of commands: 0
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_command("A","set_i",<<["x", "INTEGER"], ["y", "INTEGER"]>>)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 0
+      Number of commands: 1
+        + set_i(INTEGER, INTEGER)
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_command("A","command2",<<["x", "INTEGER"], ["y", "BOOLEAN"], ["a", "B"]>>)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 0
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_query("A","query1",<<["x", "INTEGER"], ["y", "BOOLEAN"]>>,"INTEGER")
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 1
+        + query1(INTEGER, BOOLEAN): INTEGER
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_query("A","query2",<<>>,"INTEGER")
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 2
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_command("A","command4",<<>>)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 3
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+        + command4
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+->add_assignment_instruction("A","set_i","i")
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 3
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+        + command4
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ?
+->multiplication
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 3
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+        + command4
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := (? * nil)
+->addition
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 3
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+        + command4
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ((? + nil) * nil)
+->int_value(1)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 3
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+        + command4
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ((1 + ?) * nil)
+->int_value(2)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 3
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+        + command4
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ((1 + 2) * ?)
+->multiplication
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 3
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+        + command4
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ((1 + 2) * (? * nil))
+->multiplication
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 3
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+        + command4
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ((1 + 2) * ((? * nil) * nil))
+->int_value(3)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 3
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+        + command4
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ((1 + 2) * ((3 * ?) * nil))
+->int_value(6)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 3
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+        + command4
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ((1 + 2) * ((3 * 6) * ?))
+->addition
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 3
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+        + command4
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ((1 + 2) * ((3 * 6) * (? + nil)))
+->int_value(12)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 3
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+        + command4
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
+  Routine currently being implemented: {A}.set_i
+  Assignment being specified: i := ((1 + 2) * ((3 * 6) * (12 + ?)))
+->int_value(4)
+  Status: OK.
+  Number of classes being specified: 2
+    A
+      Number of attributes: 2
+        + i: INTEGER
+        + b: BOOLEAN
+      Number of queries: 2
+        + query1(INTEGER, BOOLEAN): INTEGER
+        + query2: INTEGER
+      Number of commands: 3
+        + set_i(INTEGER, INTEGER)
+        + command2(INTEGER, BOOLEAN, B)
+        + command4
+    B
+      Number of attributes: 0
+      Number of queries: 0
+      Number of commands: 0
