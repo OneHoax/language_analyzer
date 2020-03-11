@@ -1,5 +1,5 @@
 This project is about the desing and implementation of 1) a small java-like programming language and
-2) its two associated functionalities: java-like code generation and type checking.
+2) its two associated functionalities: java-like code generation and type checking.  
 The implementation of these 2 things reside in analyzer/model/; the logic for user input resides in
 analyzer/abstract_ui/.
 The Eiffel Testing Framework (ETF) was used; Eiffel is an object-oriented and contract-based
@@ -18,3 +18,8 @@ Assuming the executable is in your current directory and that you are in a linux
 The "-i" stands for interactive mode, as there are other modes you can run it in (-b for batch mode,
 etc.).
 To quit the application, enter "quit" anytime when prompted for input.
+Alternatively, you can compile the project yourself using Eiffel Studio; the executable will be
+called "analyzer" and will be under EIFFGENs/analyzer/W_code/.
+You can see the output of various test cases udner regression-testing/log/acceptance/; the .expected
+files are the output given by the oracle, which denote the required output; the .actual files are
+the output produced by the actual executable from the program.
